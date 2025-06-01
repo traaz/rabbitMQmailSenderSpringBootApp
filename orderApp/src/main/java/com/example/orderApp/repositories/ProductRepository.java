@@ -32,7 +32,7 @@ public class ProductRepository {
 
     }
 
-    public Product getCProductById(int id){
+    public Product getProductById(int id){
         String getProductByIdQuery = "SELECT * FROM PRODUCTS WHERE id = :idValue";
         Map<String, Object> params = new HashMap<>();
         params.put("idValue", id);

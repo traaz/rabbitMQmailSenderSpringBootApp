@@ -18,22 +18,10 @@ import java.util.Map;
 public class OrderRepository {
 
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-    private CustomerRepository customerRepository;
-    private ProductRepository productRepository;
-    private RabbitTemplate rabbitTemplate;
-    private DirectExchange directExchange;
 
-    public OrderRepository(NamedParameterJdbcTemplate namedParameterJdbcTemplate,
-                           CustomerRepository customerRepository,
-                           ProductRepository productRepository,
-                           RabbitTemplate rabbitTemplate,
-                           DirectExchange directExchange) {
+
+    public OrderRepository(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
-        this.customerRepository= customerRepository;
-        this.productRepository = productRepository;
-        this.rabbitTemplate = rabbitTemplate;
-        this.directExchange = directExchange;
-
     }
 
     public void addOrder(AddOrderRequest addOrderRequest){
@@ -48,8 +36,8 @@ public class OrderRepository {
 
         namedParameterJdbcTemplate.update(addOrderQuery, insertParamSource);
 
-        Customer customer = customerRepository.getCustomerById(addOrderRequest.getCustomerId());
-        Product product = productRepository.getCProductById(addOrderRequest.getProductId());
+       // Customer customer = customerRepository.getCustomerById(addOrderRequest.getCustomerId());
+       // Product product = productRepository.getProductById(addOrderRequest.getProductId());
 
         /*ya da soyle yapabilirdik burada joinlerle birbirine baglayacak bir sql
         sonrasında order tablosuna son eklenen idyi alma ve sql'e where orderId olarak verme
@@ -61,7 +49,7 @@ public class OrderRepository {
         inner join  public.customers c on c.id = o.customer_id WHERE o.id = ? */
 
 
-        OrderMessage message= new OrderMessage();
+     /*   OrderMessage message= new OrderMessage();
         message.setEmail(customer.getEmail());
         message.setPrice(product.getPrice());
         message.setProductName(product.getProductName());
@@ -73,8 +61,7 @@ public class OrderRepository {
                 message
         );
 
-
-
+*/
     }
 
 
