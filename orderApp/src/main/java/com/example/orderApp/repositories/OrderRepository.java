@@ -2,12 +2,10 @@ package com.example.orderApp.repositories;
 
 import com.example.orderApp.DTOs.AddOrderRequest;
 import com.example.orderApp.DTOs.OrderMessage;
-import com.example.orderApp.RabbitMQConfig;
+import com.example.orderApp.RabbitMQ.RabbitMQConfig;
 import com.example.orderApp.models.Customer;
-import com.example.orderApp.models.Order;
 import com.example.orderApp.models.Product;
 import org.springframework.amqp.core.DirectExchange;
-import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
