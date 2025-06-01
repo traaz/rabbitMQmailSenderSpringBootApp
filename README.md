@@ -8,6 +8,8 @@ Postgresql
 
 Docker
 
+Redis
+
 RabbitMQ
 
 MailDev
