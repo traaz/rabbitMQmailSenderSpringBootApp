@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  maildev:
+    image: maildev/maildev
+    container_name: maildev
+    ports:
+      - "1080:1080"  # Web arayüzü için
+      - "1025:1025"  # SMTP sunucusu için
+
+
+
